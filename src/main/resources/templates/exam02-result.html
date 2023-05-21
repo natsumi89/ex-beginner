@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>足し算結果画面</h3>
+<span th:text="${session.num1}"></span>+<span th:text="${session.num2}"></span>=
+<span th:text="${answer}"></span>
+<a href="exam02-result2.html"
+  th:href="@{/exam02/toresult2}">次へ</a>
+</body>
+</html>
