@@ -8,6 +8,10 @@ public class Member {
 	public Integer getId() {
 		return id;
 	}
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", name=" + name + ", age=" + age + ", depId=" + depId + "]";
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}

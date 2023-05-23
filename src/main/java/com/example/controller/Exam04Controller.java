@@ -1,6 +1,7 @@
 package com.example.controller;
 
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.domain.User;
 import com.example.form.UserForm;
 
 @Controller
@@ -23,14 +25,12 @@ public class Exam04Controller {
 	@PostMapping("/result")
 	public String index2(@Validated UserForm form,BindingResult result,RedirectAttributes redirectAttributes,Model model) {
 		if(result.hasErrors()) {
-			return "index(model.form)";
+			return index(model,form);
 		}
 		
-		UserForm user = new UserForm();
-		user.setName(form.getName());
-		user.setAge(form.getAge());
-		user.setComment(form.getComment());
+		User user = new User();
 		redirectAttributes.addFlashAttribute("user",user);
+		BeanUtils.copyProperties(form, user);
 		return "redirect:/exam04/toresult";
 	}
 	
