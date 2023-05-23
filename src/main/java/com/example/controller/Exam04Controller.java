@@ -18,7 +18,7 @@ import com.example.form.UserForm;
 @RequestMapping("/exam04")
 public class Exam04Controller {
 	@GetMapping("")
-	public String index(Model model,UserForm form) {
+	public String index(Model model,UserForm userForm) {
 		return "exam04";
 	}
 	
@@ -29,7 +29,7 @@ public class Exam04Controller {
 		}
 		
 		User user = new User();
-		redirectAttributes.addFlashAttribute("user",user);
+		redirectAttributes.addFlashAttribute("user",form);
 		BeanUtils.copyProperties(form, user);
 		return "redirect:/exam04/toresult";
 	}
