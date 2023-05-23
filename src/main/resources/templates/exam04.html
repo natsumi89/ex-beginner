@@ -6,11 +6,17 @@
 </head>
 <body>
 <h3>ユーザー登録</h3>
+<form action="exam04-result.html"
+    th:action="@{/exam04/result}" method="post" th:object=${userForm}>
+    <div th:errors="*{name}" style="color:red;"></div>
 名前:<input type="text" name="name"><br>
+<div th:errors="*{age}" style="color:red;"></div>
 年齢:<input type="text" name="age"><br>
+<div th:errors="*{comment}" style="color:red;"></div>
 コメント:<br>
 <textarea name="comment" cols="30" rows="10"></textarea><br>
 <button>登録</button>
+</form>
 
 
 </body>
